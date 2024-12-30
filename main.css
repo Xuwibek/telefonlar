@@ -1,0 +1,219 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #8b8b8b;
+}
+.telefon {
+  margin: 20px 0;
+  text-align: center;
+}
+.input_clas {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 35px;
+  margin-bottom: 30px;
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+}
+.input_clas input {
+  width: 92%;
+  height: 100%;
+  padding: 0 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+  transition: outline 0.2s linear;
+}
+.input_clas input:focus {
+  outline: 3px solid #000;
+}
+.input_clas button {
+  padding: 0 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  background-color: rgb(0, 157, 255);
+  transition: background-color 0.3s ease-in;
+}
+.input_clas button:hover {
+  background-color: rgb(0, 89, 255);
+}
+.buttons {
+  display: flex;
+  gap: 35px;
+  padding: 0 50px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 80px;
+  z-index: 1000;
+}
+.buttons button {
+  padding: 5px 10px;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 7px;
+  transition: background-color 0.3s ease-in;
+}
+.buttons button.active {
+  background-color: #007bff;
+  color: white;
+}
+.buttons button:hover {
+  background-color: #bdb2b2;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 30px;
+}
+.card {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #fff;
+  position: relative;
+}
+.card .card-head {
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 10px;
+  transition: left 0.5s linear;
+}
+.card:hover .card-head {
+  left: 0;
+}
+.card .card-head div {
+  width: 50px;
+  height: 50px;
+}
+.card .card-head div img {
+  width: 100%;
+}
+.card .card-head p {
+  font-size: 22px;
+}
+.card .card-body {
+  position: absolute;
+  top: 50px;
+}
+.card .card-body div {
+  width: 400px;
+  height: 350px;
+}
+.card .card-body div img {
+  width: 100%;
+  height: 100%;
+}
+.scroll-bg {
+  position: sticky;
+  top: 0;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  z-index: 999;
+  padding-bottom: 10px;
+}
+.scroll-bg.sticky-active {
+  background-color: #8b8b8b;
+}
+.telefon-icon {
+  display: none;
+}
+
+/* Telefonlar uchun (max-width: 768px) */
+
+@media (max-width: 768px) {
+  .telefon-icon {
+    display: block; /* Ikonkani ko'rsatish */
+    font-size: 50px; /* Ikonkaning kattaligi */
+    color: #007bff; /* Rang */
+    margin: 0 auto; /* Markazlash */
+    margin-top: 10px; /* Yuqori oraliq */
+    margin-bottom: 10px; /* Pastki oraliq */
+  }
+
+  .telefon {
+    display: none; /* "TELEFONLAR" matnini yashirish */
+  }
+  .cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 ta ustun */
+    padding: 20px;
+  }
+
+  .cards .card {
+    width: 100%;
+    height: 300px; /* Kartalar balandligi moslashtiriladi */
+  }
+
+  .input_clas input {
+    font-size: 14px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+  }
+
+  .buttons button {
+    font-size: 14px;
+  }
+}
+
+/* Kichik telefonlar uchun (max-width: 480px) */
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr); /* 1 ta ustun */
+  }
+
+  .cards .card {
+    width: 100%;
+    height: 250px;
+  }
+
+  .input_clas {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Planshetlar uchun (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr); /* 2 ta ustun */
+  }
+
+  .cards .card {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+/* Keng ekranlar uchun (min-width: 1200px) */
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr); /* 4 ta ustun */
+  }
+
+  .cards .card {
+    height: 450px;
+  }
+}
